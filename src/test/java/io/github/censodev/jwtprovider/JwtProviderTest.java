@@ -20,9 +20,7 @@ class JwtProviderTest {
 
     @BeforeEach
     void setUp() {
-        tokenProvider = JwtProvider.builder()
-                .secret(SECRET)
-                .build();
+        tokenProvider = JwtProvider.secret(SECRET).build();
         user = new UserTest(Arrays.asList("ROLE_ADMIN", "ROLE_CUSTOMER"), "admin");
     }
 
@@ -65,28 +63,13 @@ class JwtProviderTest {
     }
 
     @Test
-    void getHeader() {
-        assertEquals("Authorization", tokenProvider.getHeader());
-    }
-
-    @Test
-    void getPrefix() {
-        assertEquals("Bearer ", tokenProvider.getPrefix());
-    }
-
-    @Test
     void getExpiration() {
-        assertEquals(3_600_000, tokenProvider.getDefaultExpireInMillisecond());
+        assertEquals(3_600_000, tokenProvider.getDefaultExpireInMs());
     }
 
     @Test
     void getSecret() {
         assertEquals(SECRET, tokenProvider.getSecret());
-    }
-
-    @Test
-    void getCredentialClaimKey() {
-        assertEquals("credential", tokenProvider.getCredentialClaimKey());
     }
 
     @Test
