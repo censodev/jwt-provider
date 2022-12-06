@@ -5,7 +5,7 @@
     <artifactId>jwt-provider</artifactId>
     <version>1.0.0</version>
     <name>JWT Provider</name>
-    <description>JWT Provider</description>
+    <description>Boots up faster authentication with JWT</description>
     <url>https://github.com/censodev/jwt-provider</url>
 
     <licenses>
